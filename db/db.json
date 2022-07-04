@@ -1,0 +1,47 @@
+{
+  "usuario": [
+    {
+      "id": 1,
+      "cedula": 1709332538,
+      "nombres": "Admin",
+      "apellidos": "Admin",
+      "correo": "admin@gmail.com",
+      "usuario": "admin",
+      "contrasenia": "admin",
+      "tipo": "admin",
+      "vacuna": "si",
+      "tipo_vacuna": "Pfizer",
+      "fecha_vacuna": "",
+      "dosis": 0,
+      "fecha_nacimiento": "",
+      "movil": "",
+      "direccion": ""
+    },
+    {
+      "cedula": "1400878521a",
+      "nombres": "KEVIN",
+      "apellidos": "CHACHA",
+      "correo": "kevin.chacha008@comunidadunir.net",
+      "tipo": "user",
+      "usuario": "kevin.chacha008@comunidadunir.net",
+      "contrasenia": "1400878521",
+      "id": 1656916111183
+    },
+    {
+      "cedula": "1400878536",
+      "nombres": "KEVIN ALEXANDER",
+      "apellidos": "CHACHA MOLINA",
+      "correo": "juan.ron@infinit-plus.com",
+      "tipo": "user",
+      "usuario": "juan.ron@infinit-plus.com",
+      "contrasenia": "1400878535",
+      "id": 1656916545633,
+      "vacuna": "no",
+      "direccion": "lol",
+      "fecha_vacuna": "2022-07-06",
+      "dosis": "3",
+      "tipo_vacuna": "Pfizer",
+      "movil": "0967809798"
+    }
+  ]
+}
