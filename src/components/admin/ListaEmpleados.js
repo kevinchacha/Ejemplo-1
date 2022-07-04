@@ -2,7 +2,6 @@ import React, { useEffect, useState,useContext } from 'react'
 import { UserContext } from '../contexts/UserContext';
 import { NavLink ,useNavigate} from "react-router-dom";
 import { helpHttp } from '../../helpers/helpHttp'
-import { Actions } from './Actions';
 import { useForm } from '../../form/useForm';
 import { ValidateFila } from './ValidateFila';
 
@@ -47,6 +46,7 @@ export const ListaEmpleados = () => {
 
     const filtroTipoVacuna = ({target}) => {
         setFilter(target.value);
+        console.log("vin",target.value)
         if (target.value == "Todos"){
             setFilter('');
             setFilterDb([])
@@ -57,6 +57,7 @@ export const ListaEmpleados = () => {
     }
 
     const filtroVacuna = ({target}) => {
+        console.log("vin",target.value)
         setFilter(target.value);
         if (target.value == "Todos"){
             setFilter('');
@@ -125,13 +126,38 @@ export const ListaEmpleados = () => {
     <div className="table-title m-4">
         <label className="input-group-text"
            >Filtrar tipo de vacuna</label>
-        <select className="form-select" id="tipo_vacuna" onChange={filtroTipoVacuna}>
-            <option value="Todos">Todos</option>
-            <option value="Sputnik">Sputnik</option>
-            <option value="Pfizer">Pfizer</option>
-            <option value="AstraZeneca">AstraZeneca</option>
-            <option value="Jhonson&Jhonson">Jhonson&Jhonson</option>
-        </select>
+    <div className="table-title m-4">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" value="Todos" id="flexRadioDefault1" onChange={filtroTipoVacuna}/>
+                <label class="form-check-label" htmlFor="flexRadioDefault1">
+                Todos
+                </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" value="Sputnik" id="flexRadioDefault2" onChange={filtroTipoVacuna}/>
+            <label class="form-check-label" htmlFor="flexRadioDefault2">
+            Sputnik
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" value="Pfizer" id="flexRadioDefault3" onChange={filtroTipoVacuna}/>
+                <label class="form-check-label" htmlFor="flexRadioDefault3">
+                Pfizer
+                </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" value="AstraZeneca" id="flexRadioDefault4" onChange={filtroTipoVacuna}/>
+            <label class="form-check-label" htmlFor="flexRadioDefault4">
+            AstraZeneca
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" value="Jhonson&Jhonson" id="flexRadioDefault5" onChange={filtroTipoVacuna}/>
+                <label class="form-check-label" htmlFor="flexRadioDefault5">
+                Jhonson&Jhonson
+                </label>
+        </div>
+    </div>
     </div>
     <div className="input-group m-4">
         <label className="input-group-text"

@@ -18,14 +18,19 @@
       "direccion": ""
     },
     {
-      "cedula": "1400878521a",
+      "cedula": "1400878521",
       "nombres": "KEVIN",
       "apellidos": "CHACHA",
       "correo": "kevin.chacha008@comunidadunir.net",
       "tipo": "user",
       "usuario": "kevin.chacha008@comunidadunir.net",
       "contrasenia": "1400878521",
-      "id": 1656916111183
+      "id": 1656916111183,
+      "tipo_vacuna": "",
+      "vacuna": "no",
+      "movil": "0967809798",
+      "fecha_vacuna": "",
+      "dosis": ""
     },
     {
       "cedula": "1400878536",
@@ -38,10 +43,26 @@
       "id": 1656916545633,
       "vacuna": "no",
       "direccion": "lol",
-      "fecha_vacuna": "2022-07-06",
-      "dosis": "3",
-      "tipo_vacuna": "Pfizer",
+      "fecha_vacuna": "",
+      "dosis": "",
+      "tipo_vacuna": "",
       "movil": "0967809798"
+    },
+    {
+      "cedula": "1709332538",
+      "nombres": "Araceli Avelinda",
+      "apellidos": "Molina",
+      "correo": "aracelim19@gmail.com",
+      "tipo": "user",
+      "usuario": "aracelim19@gmail.com",
+      "contrasenia": "1709332538",
+      "id": 1656975764415,
+      "movil": "0967809798",
+      "direccion": "Macas",
+      "vacuna": "si",
+      "tipo_vacuna": "AstraZeneca",
+      "fecha_vacuna": "2022-07-02",
+      "dosis": "2"
     }
   ]
 }

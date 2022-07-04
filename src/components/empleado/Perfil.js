@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { helpHttp } from "../../helpers/helpHttp"
 import { useForm } from "../../form/useForm"
 import { UserContext } from "../contexts/UserContext"
@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 export const Perfil = () => {
     const {user, setUser} = useContext(UserContext);
+    const [mostrar,setMostrar]=useState('');
     const navigate = useNavigate();
     let initialState = user;
     const api = helpHttp();
@@ -24,6 +25,7 @@ export const Perfil = () => {
     };
     const getSelectValue1 = ({target}) => {
         formValues.vacuna = target.value
+        setMostrar(target.value)
     }
     const getSelectValue2 = ({target}) => {
         formValues.tipo_vacuna = target.value
@@ -138,56 +140,62 @@ export const Perfil = () => {
                                             </div>
                                         </div>
                                         <div className="col-md-6 col-12">
-                                            <div className="form-group">
-                                                <label >Estado de Vacunación</label>
-                                                    <select className="form-select" id="vacuna" 
-                                                            defaultValue={formValues.vacuna} onChange={getSelectValue1} >
-                                                        <option value="si">Si</option>
-                                                        <option value="no">No</option>
-                                                    </select>
-                                                    {error.vacuna && <p style={{color:"#058744"}}>* {error.vacuna}</p>}
+                                            <label >Estado de Vacunación</label>
+                                            <div className="form-check">
+                                                <input className="form-check-input" type="radio" value="si" name="flexRadioDefault" id="flexRadioDefault1" onChange={getSelectValue1}/>
+                                                    <label className="form-check-label" htmlFor="flexRadioDefault1">
+                                                    Si
+                                                </label>
+                                                </div>
+                                                <div className="form-check">
+                                                <input className="form-check-input" type="radio" value="no" name="flexRadioDefault" id="flexRadioDefault2" onChange={getSelectValue1}/>
+                                                <label className="form-check-label" htmlFor="flexRadioDefault2">
+                                                    No
+                                                </label>
                                             </div>
-                                        </div>
-                                        { formValues.vacuna==='si' ?
-                                            <h2>Vacunado</h2>
-                                            
-                                            :<h2>NO Vacunado</h2>
-                                        }
+                                        </div> 
+                                        { mostrar ==="si" && (
                                         <div className="col-md-6 col-12">
+                                            <div className="col-md-6 col-12">
                                             <div className="form-group">
-                                                <label >Tipo de Vacuna</label>
-                                                    <select className="form-select" id="tipo_vacuna" 
-                                                            defaultValue={formValues.tipo_vacuna}
-                                                            onChange={getSelectValue2} >
-                                                        <option value="Ninguna">Ninguna</option>
-                                                        <option value="Sputnik">Sputnik</option>
-                                                        <option value="Pfizer">Pfizer</option>
-                                                        <option value="AstraZeneca">AstraZeneca</option>
-                                                        <option value="Jhonson&Jhonson">Jhonson&Jhonson</option>
-                                                    </select>
-                                                    {error.tipo_vacuna && <p style={{color:"#058744"}}>* {error.tipo_vacuna}</p>}
+                                            <label >Tipo de Vacuna</label>
+                                                <select className="form-select" id="tipo_vacuna" 
+                                                        defaultValue={formValues.tipo_vacuna}
+                                                        onChange={getSelectValue2} >
+                                                    <option value="Ninguna">Ninguna</option>
+                                                    <option value="Sputnik">Sputnik</option>
+                                                    <option value="Pfizer">Pfizer</option>
+                                                    <option value="AstraZeneca">AstraZeneca</option>
+                                                    <option value="Jhonson&Jhonson">Jhonson&Jhonson</option>
+                                                </select>
+                                                {error.tipo_vacuna && <p style={{color:"#058744"}}>* {error.tipo_vacuna}</p>}
                                             </div>
-                                        </div>
-                                        <div className="col-md-6 col-12">
-                                            <div className="form-group">
+                                            </div>
+                                            <div className="col-md-6 col-12">
+                                                <div className="form-group">
                                                 <label >Fecha de Vacunación</label>
                                                 <input type="date" id="fecha_vacuna" className="form-control"
                                                     name="fecha_vacuna" value={formValues.fecha_vacuna}
                                                     onChange={handleInputChange}
                                                     />
                                                     {error.fecha_vacuna && <p style={{color:"#058744"}}>* {error.fecha_vacuna}</p>}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="col-md-6 col-12">
-                                            <div className="form-group">
+                                            <div className="col-md-6 col-12">
+                                                <div className="form-group">
                                                 <label >Número de Dosis</label>
                                                 <input type="number" id="dosis" className="form-control"
                                                     name="dosis" value={formValues.dosis} 
                                                     placeholder="Num dosis" onChange={handleInputChange}
                                                     />
                                                     {error.dosis && <p style={{color:"#058744"}}>* {error.dosis}</p>}
+                                                </div>
                                             </div>
+                                            
                                         </div>
+                                        
+                                        )
+                                        }
                                         <div className="col-12 d-flex justify-content-end">
                                             <button type="submit"
                                                 className="btn btn-primary me-1 mb-1">Actualizar</button>
