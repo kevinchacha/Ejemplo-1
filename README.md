@@ -1,4 +1,3 @@
-# RETO KANTERITA
 
 Primeramente debemos ejecutar el comando 
 
